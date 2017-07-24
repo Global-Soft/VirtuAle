@@ -1,10 +1,16 @@
-<html>
+@extends('base')
+
+@section('title','Documento')
+@section('body')
+
+<!--<html>
 
 <head>
     <title>Documento | Principal</title>
 </head>
 
-<body>
+
+<body>-->
 <div style="text-align: center; font-size: 60px; border: 1px solid #020000;">
     Documentos
 </div>
@@ -19,6 +25,8 @@
 
 
 </form>
+@endsection
 
-</body>
-</html>
+<!--</body>
+
+</html>-->
