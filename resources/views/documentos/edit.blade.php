@@ -2,7 +2,7 @@
 
 @section('titulo', 'Documentos')
 
-@section('contenido')
+@section('content')
     <style>
         .left-margin {
             margin-left: 5px;

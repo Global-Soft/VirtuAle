@@ -2,7 +2,7 @@
 
 @section('titulo', 'Trabajos')
 
-@section('contenido')
+@section('content')
     <style>
         table tr td {
             padding-left:10px;

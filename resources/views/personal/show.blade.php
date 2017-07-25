@@ -2,7 +2,7 @@
 
 @section('titulo', 'Personal')
 
-@section('contenido')
+@section('content')
     <style>
         table tr td,
         table tr th {

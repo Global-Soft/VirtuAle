@@ -12,8 +12,14 @@ use App\Http\Requests;
 class TrabajoController extends Controller
 {
 
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
     public function __construct()
     {
+        $this->middleware('auth');
         date_default_timezone_set('America/Santiago');
     }
 

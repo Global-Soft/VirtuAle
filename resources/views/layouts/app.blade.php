@@ -102,7 +102,7 @@
         </div>
     </nav>
     <div class="content">
-    @yield('contenido')
+    @yield('content')
     </div>
 
 
