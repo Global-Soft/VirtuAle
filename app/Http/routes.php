@@ -20,6 +20,7 @@ Route::get('/home', 'HomeController@index');
 Route::get('/', 'HomeController@index');
 
 // TRABAJO
+Route::get('trabajo/create', 'TrabajoController@create');
 Route::get('trabajo/{id}', 'TrabajoController@show')->name('show-trabajo');
 Route::resource('trabajo', 'TrabajoController');
 
@@ -36,6 +37,7 @@ Route::delete('documento/{id}/{tipo_padre}', 'DocumentoController@destroy');
 Route::resource('documento', 'DocumentoController');
 
 // PERSONAL
+Route::get('personal/create', 'PersonalController@create');
 Route::get('personal/{id}', 'PersonalController@show')->name('show-personal');
 Route::get('personal/{id_padre}/{id_documento}/{tipo_padre}/download', 'DocumentoController@download');
 Route::resource('personal', 'PersonalController');

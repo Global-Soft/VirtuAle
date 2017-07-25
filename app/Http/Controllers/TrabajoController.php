@@ -77,9 +77,11 @@ class TrabajoController extends Controller
             ->select('trabajos.*', 'empresas.nombre_empresa', 'empresas.nombre_planta')
             ->where('trabajos.id', '=', $id)
             ->first();
+
         $documentos = \DB::table('documentos')
             ->where([['id_padre', '=', $id], ['tipo_padre', '=', '1']])
             ->get();
+        dd($documentos);
         return view('trabajo.show', ['trabajo' => $trabajo, 'documentos' => $documentos]);
     }
 
