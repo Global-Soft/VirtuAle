@@ -43,6 +43,7 @@ return [
 
     'disks' => [
 
+
         'local' => [
             'driver' => 'local',
             'root' => storage_path('app'),
@@ -52,6 +53,16 @@ return [
             'driver' => 'local',
             'root' => storage_path('app/public'),
             'visibility' => 'public',
+        ],
+
+        'trabajos' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/trabajos'),
+        ],
+
+        'personal' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/personal'),
         ],
 
         's3' => [

@@ -11,54 +11,31 @@
 |
 */
 
-Route::get('/', 'ListarTrabajos@index');
 
-Route::get('/documento', 'DocumentoController@index');
-
+// AUTH
 Route::auth();
 
+// HOME
 Route::get('/home', 'HomeController@index');
+Route::get('/', 'HomeController@index');
 
-Route::get('/principalDocumento', 'HomeDocumentoController@index');
+// TRABAJO
+Route::get('trabajo/{id}', 'TrabajoController@show')->name('show-trabajo');
+Route::resource('trabajo', 'TrabajoController');
 
-Route::get('/insertarDocumento', 'InsertDocumentoController@insertFormInicial');
+// EMPRESA
+Route::resource('empresa', 'EmpresaController');
 
-Route::post('/crearDocumento','InsertDocumentoController@insertDocumentoInicial');
+// DOCUMENTO
+Route::get('documento/{id}/{tipo_padre}/create', 'DocumentoController@create');
+Route::post('documento/{id}/{tipo_padre}/store', 'DocumentoController@store');
+Route::get('documento/{id_padre}/{id_documento}/edit', 'DocumentoController@edit');
+Route::get('documento/{id_padre}/{id_documento}/{tipo_padre}/download', 'DocumentoController@download');
+Route::get('documento/{id}', 'DocumentoController@show');
+Route::delete('documento/{id}/{tipo_padre}', 'DocumentoController@destroy');
+Route::resource('documento', 'DocumentoController');
 
-Route::get('/vistaDocumentos','ViewDocumentoController@index') ;
-
-Route::get('/seleccionarEditarDocumento','UpdateDocumentoController@index') ;
-
-Route::get('/seleccionarVariableEditar/{codigoDoc}','UpdateDocumentoController@showVariables') ;
-
-Route::get('/editarDescripcion/{codigoDoc}','UpdateDocumentoController@showDescripcion') ;
-
-Route::get('/editarNumSolicitudTrab/{codigoDoc}','UpdateDocumentoController@showNumSolicitudTrab') ;
-
-Route::get('/editarNumCotizacion/{codigoDoc}','UpdateDocumentoController@showNumCotizacion') ;
-
-Route::get('/editarNumAdjudicacion/{codigoDoc}','UpdateDocumentoController@showNumAdjudicacion') ;
-
-Route::get('/editarNumInformeTec/{codigoDoc}','UpdateDocumentoController@showNumInformeTec') ;
-
-Route::get('/editarNumGES/{codigoDoc}','UpdateDocumentoController@showNumGES') ;
-
-Route::get('/editarNumFactura/{codigoDoc}','UpdateDocumentoController@showNumFactura') ;
-
-Route::post('/editarDescripcion/{codigoDoc}','UpdateDocumentoController@editDescripcion') ;
-
-Route::post('/editarNumSolicitudTrab/{codigoDoc}','UpdateDocumentoController@editNumSolititudTrab') ;
-
-Route::post('/editarNumCotizacion/{codigoDoc}','UpdateDocumentoController@editNumCotizacion') ;
-
-Route::post('/editarNumAdjudicacion/{codigoDoc}','UpdateDocumentoController@editNumAdjudicacion') ;
-
-Route::post('/editarNumInformeTec/{codigoDoc}','UpdateDocumentoController@editNumInformeTec') ;
-
-Route::post('/editarNumGES/{codigoDoc}','UpdateDocumentoController@editNumGES') ;
-
-Route::post('/editarNumFactura/{codigoDoc}','UpdateDocumentoController@editNumFactura') ;
-
-Route::get('/subirSolicitudTrabajo','UploadSolicitudTrab@index') ;
-
-Route::post('/subirSolicitudTrabajo','UploadSolicitudTrab@showUploadFile') ;
+// PERSONAL
+Route::get('personal/{id}', 'PersonalController@show')->name('show-personal');
+Route::get('personal/{id_padre}/{id_documento}/{tipo_padre}/download', 'DocumentoController@download');
+Route::resource('personal', 'PersonalController');
